@@ -19,14 +19,15 @@
       <th>Salary</th>
     </tr>
     <tr>
-      <td><input type="text" placeholder="First Name"></td>
-      <td><input type="text" placeholder="Last Name"></td>
-      <td><input type="number" placeholder="ID Number"></td>
-      <td><input type="text" placeholder="Job Title"></td>
-      <td><input type="number" placeholder="Salary"></td>
+      <td><input type="text" placeholder="First Name" ng-model="ec.newEmployee.firstName"></td>
+      <td><input type="text" placeholder="Last Name" ng-model="ec.newEmployee.lastName"></td>
+      <td><input type="number" placeholder="ID Number" ng-model="ec.newEmployee.idNumber"></td>
+      <td><input type="text" placeholder="Job Title" ng-model="ec.newEmployee.jobTitle"></td>
+      <td><input type="number" placeholder="Salary" ng-model="ec.newEmployee.salary"></td>
       <td><button ng-click="ec.addEmployee()">Add Employee</button></td>
       <td><button ng-click="ec.deleteEmployee()">Delete Employee</button></td>
     </tr>
   </table>
+  {{ec.newEmployee}}
 </body>
 </html>

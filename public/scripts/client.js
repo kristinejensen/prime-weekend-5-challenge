@@ -5,6 +5,8 @@ myApp.controller('EmployeeController', function(){
 
   var self = this;
 
+  self.newEmployee = {};
+
   self.addEmployee = function(){
     console.log('add employee button was clicked');
   }
