@@ -15,8 +15,16 @@ myApp.controller('EmployeeController', ['$http', function($http){
       console.log('response from server: ', response)
       employeeList.list = response.data;
       self.employeeArray = employeeList.list;
+
+      var total = 0;
+      for (var i = 0; i < self.employeeArray.length; i++) {
+        total += Number(self.employeeArray[i].salary);
+      }
+
+      total = total / 12;
+      self.employeeSalaryTotal = total;
     });
-  }
+  } // end of getEmployees function
 
   self.addEmployee = function(){
     $http({
