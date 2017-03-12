@@ -1,0 +1,10 @@
+.tableHeader {
+  font-weight: bold;
+  text-decoration: underline;
+  padding-top: 20px;
+}
+
+#total {
+  font-weight: bold;
+  padding-top: 20px;
+}
