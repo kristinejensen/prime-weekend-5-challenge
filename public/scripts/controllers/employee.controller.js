@@ -27,15 +27,17 @@ myApp.controller('EmployeeController', ['$http', function($http){
       console.log(response);
       getEmployees();
     });
-      self.newEmployee = null;
+    self.newEmployee = null;
   }
+
+  // self.deleteEmployee = function(employeeId){
+  //   console.log('delete employee button clicked');
+  //   $http({
+  //     method: 'DELETE',
+  //     url: '/employees/remove' + employeeId
+  //   }).then(function(response) {
+  //     getEmployees();
+  //   });
+  // }
+
 }]); // end of my app controller
-
-self.clearForm = function(){
-  console.log('add new employee button clicked');
-  // self.clearAll = null;
-}
-
-// self.deleteEmployee = function(){
-//   console.log('delete employee button clicked');
-// }

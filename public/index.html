@@ -20,7 +20,7 @@
       <th><input type="text" placeholder="Job Title" ng-model="ec.newEmployee.job_title"></th>
       <th><input type="number" placeholder="Salary" ng-model="ec.newEmployee.salary"></th>
       <th><button ng-click="ec.addEmployee()">Submit</button></th>
-      <th><button ng-click="ec.deleteEmployee()">Delete</button></th>
+
     </tr>
     <tr>
       <td class="tableHeader">First Name</td>
@@ -35,6 +35,7 @@
       <td>{{employee.employee_id}}</td>
       <td>{{employee.job_title}}</td>
       <td>{{employee.salary}}</td>
+      <td><button ng-click="ec.deleteEmployee(employee.id)">Delete</button></td>
     </tr>
   </table>
   <h5 id="total">Total Monthly Salaries: </h5>
