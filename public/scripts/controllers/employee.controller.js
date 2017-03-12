@@ -1,13 +1,13 @@
 myApp.controller('EmployeeController', ['$http', function($http){
-  console.log('employee controller was loaded');
 
   var self = this;
-  var employeeList = {list: []}
+  self.newEmployee = {};
+  var employeeList = {list: []};
+  var newEmployeeData = self.newEmployee;
 
-getEmployees();
+  getEmployees();
 
   function getEmployees(){
-    console.log('add employee button clicked');
     $http({
       method: 'GET',
       url: '/employees'
@@ -20,9 +20,18 @@ getEmployees();
 
   self.addEmployee = function(){
     console.log('add employee button clicked');
+    console.log(newEmployeeData);
+    $http({
+      method: 'POST',
+      url: '/employees/new',
+      data: newEmployeeData
+    }).then(function(response){
+      console.log(response);
+      getEmployees();
+    });
   }
-
-  // self.deleteEmployee = function(){
-  //   console.log('delete employee button clicked');
-  // }
 }]); // end of my app controller
+
+// self.deleteEmployee = function(){
+//   console.log('delete employee button clicked');
+// }

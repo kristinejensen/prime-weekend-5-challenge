@@ -33,4 +33,29 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/new', function(req, res) {
+  console.log('hit post route');
+  console.log('here is the body ->', req.body);
+
+  var employeeObject = req.body;
+
+  pool.connect(function(err, client, done) {
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }else{
+      client.query('INSERT INTO employees (name, last_name, employee_id, job_title, salary) VALUES ($1, $2, $3, $4, $5);',
+        [employeeObject.name, employeeObject.last_name, employeeObject.employee_id, employeeObject.job_title, employeeObject.salary], function(err, result) {
+          done();
+          if(err){
+            console.log(err);
+            res.sendStatus(500); // the world exploded
+          }else{
+            res.sendStatus(201);
+          }
+      });
+    }
+  });
+});
+
 module.exports = router;
