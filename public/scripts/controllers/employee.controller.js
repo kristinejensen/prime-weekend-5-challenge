@@ -19,8 +19,6 @@ myApp.controller('EmployeeController', ['$http', function($http){
   }
 
   self.addEmployee = function(){
-    console.log('add employee button clicked');
-    console.log(newEmployeeData);
     $http({
       method: 'POST',
       url: '/employees/new',
@@ -29,8 +27,14 @@ myApp.controller('EmployeeController', ['$http', function($http){
       console.log(response);
       getEmployees();
     });
+      self.newEmployee = null;
   }
 }]); // end of my app controller
+
+self.clearForm = function(){
+  console.log('add new employee button clicked');
+  // self.clearAll = null;
+}
 
 // self.deleteEmployee = function(){
 //   console.log('delete employee button clicked');
