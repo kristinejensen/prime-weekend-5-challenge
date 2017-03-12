@@ -58,30 +58,27 @@ router.post('/new', function(req, res) {
   });
 });
 
-// router.delete('/remove:id', function(req, res) {
-//   var employeeToDeleteId = req.params.id;
-//   console.log('hit delete route');
-//   console.log('here is the id to delete ->', taskToDeleteId);
-//
-//   db query
-//   DELETE FROM task WHERE id=7
-//   pool.connect(function(err, client, done) {
-//     if(err){
-//       console.log(err);
-//       res.sendStatus(500);
-//     }else{
-//       client.query('DELETE FROM task WHERE id=$1;',
-//         [taskToDeleteId], function(err, result) {
-//           done();
-//           if(err){
-//             console.log(err);
-//             res.sendStatus(500); // the world exploded
-//           }else{
-//             res.sendStatus(200);
-//           }
-//       });
-//     }
-//   });
-// });
+router.delete('/remove:id', function(req, res) {
+  var employeeToDeleteId = req.params.id;
+  console.log('here is the id to delete ->', employeeToDeleteId);
+
+  pool.connect(function(err, client, done) {
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }else{
+      client.query('DELETE FROM employees WHERE id=$1;',
+        [employeeToDeleteId], function(err, result) {
+          done();
+          if(err){
+            console.log(err);
+            res.sendStatus(500); // the world exploded
+          }else{
+            res.sendStatus(200);
+          }
+      });
+    }
+  });
+});
 
 module.exports = router;

@@ -30,14 +30,13 @@ myApp.controller('EmployeeController', ['$http', function($http){
     self.newEmployee = null;
   }
 
-  // self.deleteEmployee = function(employeeId){
-  //   console.log('delete employee button clicked');
-  //   $http({
-  //     method: 'DELETE',
-  //     url: '/employees/remove' + employeeId
-  //   }).then(function(response) {
-  //     getEmployees();
-  //   });
-  // }
+  self.deleteEmployee = function(employeeId){
+    $http({
+      method: 'DELETE',
+      url: '/employees/remove' + employeeId
+    }).then(function(response) {
+      getEmployees();
+    });
+  }
 
 }]); // end of my app controller
