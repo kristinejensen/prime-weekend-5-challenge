@@ -10,17 +10,16 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body ng-app="EmployeeApp" ng-controller="EmployeeController as ec">
-  <h1>Employee Salary Calculator</h1>
-  <h5>Add Employee</h5>
-  <table>
+    <h2 class="jumbotron text-center">Salary Calculator</h2>
+  <h4>Add Employee</h4>
+  <table class="form-group">
     <tr>
-      <th><input type="text" placeholder="First Name" ng-model="ec.newEmployee.name"></th>
-      <th><input type="text" placeholder="Last Name" ng-model="ec.newEmployee.last_name"></th>
-      <th><input type="number" placeholder="ID Number" ng-model="ec.newEmployee.employee_id"></th>
-      <th><input type="text" placeholder="Job Title" ng-model="ec.newEmployee.job_title"></th>
-      <th><input type="number" placeholder="Salary" ng-model="ec.newEmployee.salary"></th>
-      <th><button ng-click="ec.addEmployee()">Submit</button></th>
-
+      <th><input type="text" placeholder="First Name" ng-model="ec.newEmployee.name" class="form-control"></th>
+      <th><input type="text" placeholder="Last Name" ng-model="ec.newEmployee.last_name" class="form-control"></th>
+      <th><input type="number" placeholder="ID Number" ng-model="ec.newEmployee.employee_id" class="form-control"></th>
+      <th><input type="text" placeholder="Job Title" ng-model="ec.newEmployee.job_title" class="form-control"></th>
+      <th><input type="number" placeholder="Salary" ng-model="ec.newEmployee.salary" class="form-control"></th>
+      <th><button ng-click="ec.addEmployee()" class="btn btn-primary">Submit</button></th>
     </tr>
     <tr>
       <td class="tableHeader">First Name</td>
@@ -35,9 +34,9 @@
       <td>{{employee.employee_id}}</td>
       <td>{{employee.job_title}}</td>
       <td>{{employee.salary}}</td>
-      <td><button ng-click="ec.deleteEmployee(employee.id)">Delete</button></td>
+      <td><button ng-click="ec.deleteEmployee(employee.id)" class="btn btn-danger">Delete</button></td>
     </tr>
   </table>
-  <h5 id="total">Total Monthly Salaries: {{ec.employeeSalaryTotal}}</h5>
-</body>
+  <h5 id="total">Total Monthly Salary Expenditure: {{ec.employeeSalaryTotal}}</h5>
+</div>
 </html>
